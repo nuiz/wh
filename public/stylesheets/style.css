@@ -1,0 +1,77 @@
+@font-face {
+  font-family: 'TH Chakra Petch';
+  src: url('../fonts/th_chakra_petch-webfont.ttf');
+}
+
+@font-face {
+  font-family: 'DS Digital';
+  src: url('../fonts/ds-digit-webfont.ttf');
+}
+
+body,html {
+  padding: 0;
+  margin: 0;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+a {
+  color: #00B7FF;
+}
+
+.page {
+  display: block;
+  position: absolute;
+  width: 1280px;
+  height: 768px;
+  margin: 0;
+  padding: 0;
+}
+
+#page1 {
+  background: url('../images/page1_1280x768.jpg');
+}
+
+#page2 {
+  background: url('../images/page2_1280x768.jpg');
+}
+
+#page3 {
+  background: url('../images/page3_1280x768.jpg');
+}
+
+#mode, #weight, #height {
+  position: absolute;
+  font-family: 'TH Chakra Petch';
+  color: white;
+  font-size: 60px;
+  line-height: 85px;
+  font-weight: bold;
+}
+
+#mode {
+  left: 14px;
+  top: 12px;
+  width: 151px;
+  text-align: center;
+  color: #333333;
+  font-size: 60px;
+}
+
+#weight {
+  left: 572px;
+  top: 175px;
+  width: 508px;
+  height: 197px;
+}
+
+#height {
+  left: 572px;
+  top: 449px;
+  width: 508px;
+  height: 197px;
+}
+
+.digital {
+  font-family: 'DS Digital';
+  font-size: 36px;
+}

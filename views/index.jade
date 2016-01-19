@@ -1,0 +1,13 @@
+extends layout
+
+block content
+  script(type='text/javascript', src='http://localhost:3001/socket.io/socket.io.js')
+  script(type='text/javascript', src='javascripts/angular.min.js')
+  script(type='text/javascript', src='javascripts/main.js')
+  div(ng-controller="Main", ng-app="main")
+    div#page1.page(ng-show="displayPage == 1")
+    div#page2.page(ng-show="displayPage == 2")
+    div#page3.page(ng-show="displayPage == 3")
+      div#mode {{showMode()}}
+      div#height {{showHeightText()}}<br> <span class="digital">{{showHeight()}}</span> {{showHeightUnit()}}
+      div#weight {{showWeightText()}}<br> <span class="digital">{{showWeight()}}</span> {{showWeightUnit()}}
