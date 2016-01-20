@@ -1,6 +1,23 @@
 (function(){
   "use strict";
 
+  var keyconfig;
+  (function(){
+    var xmlhttp = new XMLHttpRequest();
+
+    xmlhttp.onreadystatechange = function() {
+        if (xmlhttp.readyState == XMLHttpRequest.DONE ) {
+           if(xmlhttp.status == 200){
+               keyconfig = JSON.parse(xmlhttp.responseText);
+               console.log('load keyconfig success', keyconfig);
+           }
+        }
+    }
+
+    xmlhttp.open("GET", "keyconfig.json", true);
+    xmlhttp.send();
+  })();
+
   var socket = io('localhost:3001');
   var scope;
   socket.on('update_weight', function(data){
@@ -58,64 +75,79 @@
   };
 
   var fnKey = {
-    97: function(){
+    0: function(){
+      if(scope.displayPage != 1) return;
       scope.displayPage = 2;
     },
-    115: function(){
+    1: function(){
+      if(scope.displayPage != 3) return;
       scope.lang = 0;
     },
-    100: function(){
+    2: function(){
+      if(scope.displayPage != 2) return;
       scope.displayPage = 3;
       scope.unit = 0;
       scope.lang = 0;
     },
-    102: function(){
+    3: function(){
+      if(scope.displayPage != 2) return;
       scope.displayPage = 3;
       scope.unit = 1;
       scope.lang = 0;
     },
-    103: function(){
+    4: function(){
+      if(scope.displayPage != 2) return;
       scope.displayPage = 3;
       scope.unit = 2;
       scope.lang = 0;
     },
-    104: function(){
+    5: function(){
+      if(scope.displayPage != 2) return;
       scope.displayPage = 3;
       scope.unit = 3;
       scope.lang = 0;
     },
-    122: function(){
+    6: function(){
       if(scope.displayPage > 1 ) {
         scope.displayPage--;
       }
     },
-    120: function(){
+    7: function(){
+      if(scope.displayPage != 3) return;
       scope.lang = 1;
     },
-    99: function(){
+    8: function(){
+      if(scope.displayPage != 2) return;
       scope.displayPage = 3;
       scope.unit = 0;
       scope.lang = 1;
     },
-    118: function(){
+    9: function(){
+      if(scope.displayPage != 2) return;
       scope.displayPage = 3;
       scope.unit = 1;
       scope.lang = 1;
     },
-    98: function(){
+    10: function(){
+      if(scope.displayPage != 2) return;
       scope.displayPage = 3;
       scope.unit = 2;
       scope.lang = 1;
     },
-    110: function(){
+    11: function(){
+      if(scope.displayPage != 2) return;
       scope.displayPage = 3;
       scope.unit = 3;
       scope.lang = 1;
     }
   };
+
   window.onkeypress = function(e){
-    if(typeof fnKey[e.keyCode] == 'function') {
-      fnKey[e.keyCode]();
+    var indexFn = keyconfig.indexOf(String.fromCharCode(e.charCode));
+    if(indexFn == -1) return;
+
+    if(typeof fnKey[indexFn] == 'function') {
+      fnKey[indexFn]();
       scope.$apply();
     }
   };
