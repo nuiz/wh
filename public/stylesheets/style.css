@@ -8,7 +8,7 @@
   src: url('../fonts/ds-digit-webfont.ttf');
 }
 
-body,html {
+body, html {
   padding: 0;
   margin: 0;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
@@ -22,22 +22,35 @@ a {
   display: block;
   position: absolute;
   width: 1280px;
-  height: 768px;
+  height: 720px;
   margin: 0;
   padding: 0;
 }
 
 #page1 {
-  background: url('../images/page1_1280x768.jpg');
+  background: url('../images/page1_1280x720.jpg');
+}
+
+#welcomeText {
+  position: absolute;
+  top: 50%;
+  width: 100%;
+  text-align: center;
+  font-size: 104px;
+  margin-top: -50px;
+  font-family: 'TH Chakra Petch';
+  color: rgb(26, 144, 146);
+  font-weight: bold;
 }
 
 #page2 {
-  background: url('../images/page2_1280x768.jpg');
+  /*background: url('../images/page2_1280x768.jpg');*/
+  background: url('../images/page3_1280x720.jpg');
 }
 
-#page3 {
+/*#page3 {
   background: url('../images/page3_1280x768.jpg');
-}
+}*/
 
 #mode, #weight, #height {
   position: absolute;
